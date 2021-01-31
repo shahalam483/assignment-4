@@ -107,3 +107,87 @@
     </section>
 
     <!--Thank You-->
+
+    <script>
+
+        document.getElementById('first-class-ticket-plus').addEventListener('click', function(){
+            const firstClassTicket = document.getElementById('first-class-ticket-number');
+            const firstClassTicketNumber = parseFloat(firstClassTicket.value);
+            const newFirstClassTicketNumber = firstClassTicketNumber + 1;
+            firstClassTicket.value = newFirstClassTicketNumber;
+            const totalTicket = newFirstClassTicketNumber * 150;
+            document.getElementById('first-class-amount').innerText = totalTicket;
+
+            totalCalculation()
+
+        })
+
+        document.getElementById('first-class-ticket-minus').addEventListener('click', function(){
+            const firstClassTicket = document.getElementById('first-class-ticket-number');
+            const firstClassTicketNumber = parseFloat(firstClassTicket.value);
+
+        if( firstClassTicketNumber > 0){
+            const newFirstClassTicketNumber = firstClassTicketNumber - 1;
+            firstClassTicket.value = newFirstClassTicketNumber;
+            const totalFirstClassTicket = newFirstClassTicketNumber * 150;
+            document.getElementById('first-class-amount').innerText = totalFirstClassTicket;
+
+            totalCalculation()
+
+            }
+
+            
+        })
+
+        document.getElementById('economy-ticket-plus').addEventListener('click', function(){
+            const economyTicket = document.getElementById('economy-ticket-number');
+            const economyTicketNumber = parseFloat(economyTicket.value);
+            const newEconomyTicketNumber = economyTicketNumber + 1;
+            economyTicket.value = newEconomyTicketNumber;
+            const totalEconomyTicket = newEconomyTicketNumber * 100;
+            document.getElementById('economy-amount').innerText = totalEconomyTicket;
+
+            totalCalculation()
+
+        })
+
+
+        document.getElementById('economy-ticket-minus').addEventListener('click', function(){
+            const economyTicket = document.getElementById('economy-ticket-number');
+            const economyTicketNumber = parseFloat(economyTicket.value);
+        if(economyTicketNumber > 0){
+            const newEconomyTicketNumber = economyTicketNumber - 1;
+            economyTicket.value = newEconomyTicketNumber;
+            const totalEconomyTicket = newEconomyTicketNumber * 100;
+            document.getElementById('economy-amount').innerText = totalEconomyTicket;
+            
+            totalCalculation()
+
+            }
+            
+        })
+
+       
+       function totalCalculation(){
+           const firstClassQuantity = document.getElementById('first-class-ticket-number');
+           const newFirstClassQuantity = parseInt(firstClassQuantity.value);
+
+           const economyQuantity = document.getElementById('economy-ticket-number');
+           const newEconomyQuantity = parseInt(economyQuantity.value);
+
+           const subTotal = newFirstClassQuantity * 150 +newEconomyQuantity * 100;
+           document.getElementById('sub-total').innerText = subTotal;
+
+           const tax = subTotal * 0.1;
+           document.getElementById('tax-amount').innerText = tax;
+           const total = subTotal + tax;
+           document.getElementById('total').innerText = total;
+
+       }
+
+
+    </script>
+    
+</body>
+
+</html>
